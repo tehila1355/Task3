@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Exercise7 {
+    public static final int MIN_SIZE  = 9;
     public static void main(String[] args){
         System.out.println("Please enter the quadratic equation: ");
         Scanner scanner = new Scanner(System.in);
@@ -19,7 +20,7 @@ public class Exercise7 {
         int c;
 
 
-        if (equation.length() >= 9){
+        if (equation.length() >= MIN_SIZE){
             int lastIndex = equation.length() -1;
             if (equation.charAt(lastIndex - counter) == '0'){
                 counter += 1;
