@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 public class Exercise9 {
     public static final int ARRAY_SIZE = 4;
+    public static final int MAX_IN_SURPRISING_ROAD = 25;
+    public static final int MIN_IN_SURPRISING_ROAD = 5;
+    public static final int MAX_GUESS = 6666;
+    public static final int MIN_GUESS = 1111;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -15,11 +19,12 @@ public class Exercise9 {
         int easyRoad = 20;
         int mediumRoad = 15;
         int hardRoad = 10;
-        int surprisingRoad = random.nextInt(25) + 5;
+        int surprisingRoad = random.nextInt(MAX_IN_SURPRISING_ROAD - MIN_IN_SURPRISING_ROAD + 1) + MIN_IN_SURPRISING_ROAD;
+
 
 
         while (!correct) {
-            secretCode = random.nextInt(6666) + 1000;
+            secretCode = random.nextInt(MAX_GUESS - MIN_GUESS + 1) + MIN_GUESS;
             correct = numbersSmallerThanSix(secretCode);
             if (correct){
                 correct = isNotDoubleChar(secretCode);
@@ -51,7 +56,7 @@ public class Exercise9 {
             while (!correct) {
                 System.out.println("Enter a guess");
                 guess = scanner.nextInt();
-                if (guess > 999 && guess <6666){
+                if (guess > MIN_GUESS && guess < MAX_GUESS){
                     correct = numbersSmallerThanSix(guess);
 
                     if (correct){
@@ -65,7 +70,7 @@ public class Exercise9 {
             }
 
             if (guess == secretCode) {
-                System.out.println(":)");
+                System.out.println(":) You win");
                 break;
             } else {
                 guess(guess,secretCode);

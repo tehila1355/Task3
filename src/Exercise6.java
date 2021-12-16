@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Exercise6 {
+    public static final int ZERO_IN_ASCII = 48;
+    public static final int NINE_IN_ASCII = 57;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String expression;
@@ -16,7 +19,7 @@ public class Exercise6 {
     }
 
     public static double calculation (String expression) {
-        double number1 = expression.charAt(0) - 48;
+        double number1 = expression.charAt(0) - ZERO_IN_ASCII;
         double number2 = -1;
         int indexNumber2 = expression.length();
         int indexNumber1 = 1;
@@ -27,7 +30,7 @@ public class Exercise6 {
         while (indexNumber1 != expression.length() - 1) {
             for (int i = indexNumber1; i <= indexNumber2; i++) {
                 if (isNumber(expression,i)) {
-                    number2 = expression.charAt(i) - 48;
+                    number2 = expression.charAt(i) - ZERO_IN_ASCII;
                     counter = i;
                     break;
                 }
@@ -60,7 +63,7 @@ public class Exercise6 {
 
     public static boolean isNumber(String expression, int index) {
         boolean isNumber = false;
-        if (expression.charAt(index) >= 48 && expression.charAt(index) <= 57) {
+        if (expression.charAt(index) >= ZERO_IN_ASCII && expression.charAt(index) <= NINE_IN_ASCII) {
             isNumber = true;
         }
         return isNumber;
