@@ -27,8 +27,8 @@ public class Exercise6 {
         double result;
 
 
-        while (indexNumber1 != expression.length() - 1) {
-            for (int i = indexNumber1; i <= indexNumber2; i++) {
+        while (indexNumber1 < expression.length() - 1) {
+            for (int i = indexNumber1; i < indexNumber2; i++) {
                 if (isNumber(expression,i)) {
                     number2 = expression.charAt(i) - ZERO_IN_ASCII;
                     counter = i;
